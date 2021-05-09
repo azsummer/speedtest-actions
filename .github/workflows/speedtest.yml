@@ -1,0 +1,18 @@
+name: Speedtest
+on: push
+jobs:
+  AutoDownloaderProcess:
+    runs-on: windows-latest
+    steps:
+    - name: Test Install
+      shell: cmd
+      run: |
+       mkdir D:\DL
+       cd /d D:\DL
+       curl https://ftp.speedtest.cn/cli/windows/speedtest-cn-cli.exe -o D:\speedtest.exe -L
+    - name: Download
+      shell: cmd
+      run: |
+        cd /d D:\DL
+        ..\speedtest.exe
+
